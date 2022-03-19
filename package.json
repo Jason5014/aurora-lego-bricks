@@ -1,5 +1,5 @@
 {
-  "name": "lego-bricks",
+  "name": "aurora-lego-bricks",
   "version": "0.0.1",
   "private": false,
   "main": "dist/lego-bricks.umd.js",
@@ -8,21 +8,29 @@
   "author": "Jason",
   "license": "MIT",
   "keywords": [
-    "Component", "Vues", "UI"
+    "Component",
+    "Vues",
+    "UI"
   ],
   "homepage": "https://gitee.com/jason5014/lego-bricks.git",
   "repository": {
     "type": "git",
     "url": "https://gitee.com/jason5014/lego-bricks.git"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "npm run clean && npm run build:esm && npm run build:umd",
     "clean": "rimraf ./dist",
+    "build": "npm run clean && npm run build:esm && npm run build:umd",
     "build:esm": "rollup --config rollup.esm.config.js",
     "build:umd": "rollup --config rollup.umd.config.js",
     "lib": "ts src",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint --max-warnings 5",
+    "test:watch": "vue-cli-service test:unit tests/unit --watch",
+    "test": "vue-cli-service test:unit tests/unit",
+    "prepublishOnly": "npm run lint && npm run test && npm run build"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
@@ -41,20 +49,25 @@
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-typescript": "^5.0.2",
+    "@vue/test-utils": "^2.0.0-0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
+    "husky": "4",
     "jest": "^27.5.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.70.0",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-typescript2": "^0.31.2",
     "rollup-plugin-vue": "^6.0.0",
+    "ts-jest": "^26.4.4",
     "typescript": "^4.6.2",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-jest": "^5.0.0-0"
   },
   "eslintConfig": {
     "root": true,
@@ -74,5 +87,10 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test"
+    }
+  }
 }
