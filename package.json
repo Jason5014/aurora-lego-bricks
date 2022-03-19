@@ -12,10 +12,10 @@
     "Vues",
     "UI"
   ],
-  "homepage": "https://gitee.com/jason5014/lego-bricks.git",
+  "homepage": "https://github.com/Jason5014/aurora-lego-bricks.git",
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/jason5014/lego-bricks.git"
+    "url": "https://github.com/Jason5014/aurora-lego-bricks.git"
   },
   "files": [
     "dist"
