@@ -10,6 +10,11 @@
   "keywords": [
     "Component", "Vues", "UI"
   ],
+  "homepage": "https://gitee.com/jason5014/lego-bricks.git",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/jason5014/lego-bricks.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "npm run clean && npm run build:esm && npm run build:umd",
