@@ -1,6 +1,6 @@
 {
   "name": "aurora-lego-bricks",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": false,
   "main": "dist/lego-bricks.umd.js",
   "module": "dist/lego-bricks.esm.js",
