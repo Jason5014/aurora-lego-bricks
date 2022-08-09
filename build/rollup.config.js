@@ -1,4 +1,4 @@
-import { name } from './package.json';
+import { name } from '../package.json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import typescript from 'rollup-plugin-typescript2';
 import css from 'rollup-plugin-css-only';
@@ -11,8 +11,10 @@ export const fileName = type => `dist/${name}.${type}.js`;
 export const tsconfigOverride = {
 	"compilerOptions": {
 		"declaration": true,
+		"outDir": "dist",
 	},
 	"exclude": [
+		"tests/**",
 		"node_modules",
 		"src/App.vue",
 		"src/main.ts",
